@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\ATK-ESP8266</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -561,19 +561,9 @@
           <GroupName>ATK-ESP8266</GroupName>
           <Files>
             <File>
-              <FileName>apsta.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ATK-ESP8266\apsta.c</FilePath>
-            </File>
-            <File>
               <FileName>common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ATK-ESP8266\common.c</FilePath>
-            </File>
-            <File>
-              <FileName>wifiap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ATK-ESP8266\wifiap.c</FilePath>
             </File>
             <File>
               <FileName>wifista.c</FileName>

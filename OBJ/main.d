@@ -39,8 +39,6 @@
 ..\obj\main.o: ..\SYSTEM\usart\usart.h
 ..\obj\main.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\main.o: ..\HARDWARE\LED\led.h
-..\obj\main.o: ..\HARDWARE\LCD\lcd.h
-..\obj\main.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\main.o: ..\HARDWARE\ADC\adc.h
 ..\obj\main.o: ..\HARDWARE\MQ_Sensor\mq_sensor.h
 ..\obj\main.o: ..\HARDWARE\SC_HR501\hc_sr501.h
@@ -49,3 +47,6 @@
 ..\obj\main.o: ..\HARDWARE\Motor\motor.h
 ..\obj\main.o: ..\HARDWARE\Rain_detect\rain_detect.h
 ..\obj\main.o: ..\HARDWARE\EXTI\exti.h
+..\obj\main.o: ..\ATK-ESP8266\common.h
+..\obj\main.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\string.h
+..\obj\main.o: ..\HARDWARE\USART3\usart3.h
