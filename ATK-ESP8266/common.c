@@ -14,7 +14,7 @@ const char* wifista_password="19881020"; 	//连接密码
 
 extern u8 window_isOpen;
 
-u8 isAlive=0;	//连接状态
+u8 isAlive;	//连接状态
 
 
 void check_app_cmd(void)
