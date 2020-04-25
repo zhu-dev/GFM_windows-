@@ -21,58 +21,29 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-E:\STM32_Projects\GFM_V1\USER\ADC.uvprojx
-Project File Date:  04/17/2020
+E:\STM32_Projects\GFM_V1_VET6\USER\ADC.uvprojx
+Project File Date:  04/24/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\MDK5.24\ARM\ARMCC\Bin'
 Build target 'ADC'
+compiling exti.c...
 compiling main.c...
-main.c(18): warning:  #177-D: variable "ppm"  was declared but never referenced
-  	float ppm;
-main.c(20): warning:  #177-D: variable "t"  was declared but never referenced
-  	u8 t=0;			    
-main.c(21): warning:  #177-D: variable "temperature"  was declared but never referenced
+main.c(96): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
+  					atk_8266_send_data(p,"OK",10);  //发送指定长度的数据
+main.c(28): warning:  #177-D: variable "ppm"  was declared but never referenced
+  	float ppm ;
+main.c(29): warning:  #177-D: variable "ppm_1"  was declared but never referenced
+  	u16 ppm_1 = 0;
+main.c(31): warning:  #177-D: variable "temperature"  was declared but never referenced
   	u8 temperature;  	    
-main.c(22): warning:  #177-D: variable "humidity"  was declared but never referenced
+main.c(32): warning:  #177-D: variable "humidity"  was declared but never referenced
   	u8 humidity;  
-main.c(24): warning:  #177-D: variable "rain"  was declared but never referenced
-  	u8 rain = 0;
-main.c(25): warning:  #177-D: variable "wind"  was declared but never referenced
-  	u8 wind = 0;
-main.c(27): warning:  #177-D: variable "window_isOpen"  was declared but never referenced
-  	u8 window_isOpen = 0;
-main.c: 7 warnings, 0 errors
-compiling common.c...
-..\ATK-ESP8266\common.c(38): warning:  #177-D: variable "buf"  was declared but never referenced
-  	char *buf;
-..\ATK-ESP8266\common.c(83): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *"
-  				if(atk_8266_check_cmd(ack))
-..\ATK-ESP8266\common.c(112): warning:  #167-D: argument of type "u8 *" is incompatible with parameter of type "char *"
-  				if(atk_8266_check_cmd(ack))break;//得到有效数据 
-..\ATK-ESP8266\common.c(148): warning:  #513-D: a value of type "char *" cannot be assigned to an entity of type "u8 *"
-  	p=atk_8266_check_cmd("+CIPSTATUS:"); 
-..\ATK-ESP8266\common.c(249): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-  	while(atk_8266_send_cmd(p,"WIFI GOT IP",300))				//连接目标路由器,并且获得IP
-..\ATK-ESP8266\common.c(258): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "u8 *"
-  	while(atk_8266_send_cmd(p,"OK",300))
-..\ATK-ESP8266\common.c(267): warning:  #225-D: the format string ends before this argument
-  	printf("%s",p,(u8*)portnum);
-..\ATK-ESP8266\common.c(228): warning:  #177-D: variable "key"  was declared but never referenced
-  	u8 key;
-..\ATK-ESP8266\common.c(229): warning:  #177-D: variable "timex"  was declared but never referenced
-  	u8 timex=0; 
-..\ATK-ESP8266\common.c(232): warning:  #177-D: variable "t"  was declared but never referenced
-  	u16 t=999;		//加速第一次获取链接状态
-..\ATK-ESP8266\common.c(234): warning:  #177-D: variable "rlen"  was declared but never referenced
-  	u16 rlen=0;
-..\ATK-ESP8266\common.c(235): warning:  #177-D: variable "constate"  was declared but never referenced
-  	u8 constate=0;	//连接状态
-..\ATK-ESP8266\common.c: 12 warnings, 0 errors
+main.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=16930 RO-data=970 RW-data=64 ZI-data=2632  
+Program Size: Code=17550 RO-data=970 RW-data=80 ZI-data=2632  
 FromELF: creating hex file...
-"..\OBJ\ADC.axf" - 0 Error(s), 19 Warning(s).
+"..\OBJ\ADC.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 

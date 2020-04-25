@@ -7,25 +7,35 @@
 #include "mq_sensor.h"
 #include "hc_sr501.h"
 #include "dht11.h"
-#include "motor.h"
 #include "rain_detect.h"
 #include "common.h"
 #include "usart3.h" 
+#include "encoder.h"
+
+u8 window_isOpen;
+u8 rain;
+
+void check_app_cmd(void);
+
 
 int main(void)
 { 
  	
-	float ppm;
+		
+	u16 time;
+	char p[30];
+
+	float ppm ;
+	u16 ppm_1 = 0;
 	
-	u8 t=0;			    
 	u8 temperature;  	    
 	u8 humidity;  
 	
-	u8 rain = 0;
-	u8 wind = 0;
+	uint32_t windspeed = 0;
 	
-	u8 window_isOpen = 0;
-	
+	window_isOpen = 0;
+	rain = 0;
+
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
 	delay_init(168);    //初始化延时函数
 	uart_init(115200);	//初始化串口波特率为115200
@@ -39,31 +49,61 @@ int main(void)
 //	
 //	while(DHT11_Init())	//DHT11初始化	
 
-	LED0 = 0;
-	LED1 = 0;
-	atk_8266_wifista_test();
+	LED0 = 1;
+	LED1 = 1;
+	
+	atk_8266_wifista_init();
 
 	while(1)
 	{ 
-	
-	delay_ms(10); 
-	atk_8266_at_response(1);
-	
-//		 if(t%100==0)//每100ms读取一次
-//		{		
-//				LED0=!LED0;
-//				
-//				DHT11_Read_Data(&temperature,&humidity);		//读取温湿度值					    
-//				printf("\r\ntemperature:%d  humidity:%d\r\n",temperature,humidity);
-//				
-//				ppm = MQ2_GetPPM();
-//				printf("\r\nppm:%f \r\n",ppm);							
-//		 }
-				
-		}	
+			atk_8266_at_response(1);
 		
+			delay_ms(10); 
+			
+			//1秒读取一次编码器数据->风速
+			if(time %100 == 0)
+			{
+				windspeed=CaptureNumber*60/13;//实际每分钟电机转速
+			}
+			
+			
+			
+			if(isAlive && time%400==0)//收到客户端心跳包或者命令，说明连接还在，可以发数据.
+			{
+				
+					//发送数据
+					LED0=!LED0;
+					
+//					DHT11_Read_Data(&temperature,&humidity);		//读取温湿度值					    
+//					printf("\r\n[sensor]temperature:%d  humidity:%d\r\n",temperature,humidity);
+//					
+//					ppm = MQ2_GetPPM();//读取烟雾数据
+//					ppm_1 = ppm;
+//					printf("[sensor]ppm:%f \r\n",ppm_1);		
+					
+					//监测下雨状态
+					
+					//风速
+					
+
+					//窗户开合状态,根据温湿度，雨量，风速，合理的开合窗户
+					
+					//发送数据到客户端
+					memset(p,0x00,sizeof(p));
+					sprintf(p,"%2d%2d%4d%d%4d%d",26,50,2000,rain,windspeed,window_isOpen);
+					atk_8266_send_cmd("AT+CIPSEND=0,25","OK",20);  //发送指定长度的数据
+					delay_ms(10);
+					atk_8266_send_data(p,"OK",10);  //发送指定长度的数据
+					//printf("[debug]senddata:%s\r\n",p);
+					
+			}
+			if(time >800) time = 0;
+			time++;
+					
+		}			
 
 }
+
 
 
 

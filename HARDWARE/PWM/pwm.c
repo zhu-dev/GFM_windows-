@@ -1,7 +1,25 @@
-#include "motor.h"
+#include "pwm.h"
 #include "led.h"
 #include "usart.h"
+ 
+//////////////////////////////////////////////////////////////////////////////////	 
+//本程序只供学习使用，未经作者许可，不得用于其它任何用途
+//ALIENTEK STM32F407开发板
+//定时器PWM 驱动代码	   
+//正点原子@ALIENTEK
+//技术论坛:www.openedv.com
+//创建日期:2014/5/4
+//版本：V1.0
+//版权所有，盗版必究。
+//Copyright(C) 广州市星翼电子科技有限公司 2014-2024
+//All rights reserved									  
+////////////////////////////////////////////////////////////////////////////////// 	 
 
+
+//TIM14 PWM部分初始化 
+//PWM输出初始化
+//arr：自动重装值
+//psc：时钟预分频数
 void TIM14_PWM_Init(u32 arr,u32 psc)
 {		 					 
 	//此部分需手动修改IO口设置
@@ -41,47 +59,6 @@ void TIM14_PWM_Init(u32 arr,u32 psc)
 	TIM_Cmd(TIM14, ENABLE);  //使能TIM14
  
 										  
-} 
-
-
-
-void Motor_sw_Init(void)
-{
-
-	//直接设置GPIO电平开启和关闭
-
-
-}
-
-void open_pwm(void)
-{
-//通过PWM方式调速开闭
-
-}
-
-
-void close_pwm(void)
-{
-
-
-
-}
-
-
-void open_sw(void)
-{
-
-	printf("\r\n 打开窗户\r\n");
-
-}
-
-
-void close_sw(void)
-{
-	
-	printf("\r\n 关闭窗户\r\n");
-
-
-}
+}  
 
 

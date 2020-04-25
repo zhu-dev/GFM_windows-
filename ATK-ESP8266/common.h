@@ -18,11 +18,11 @@ u8 atk_8266_send_cmd(u8 *cmd,u8 *ack,u16 waittime);
 u8 atk_8266_consta_check(void);
 u8 atk_8266_quit_trans(void);
 
-void atk_8266_get_ip(char* ipbuf);
+char* atk_8266_get_ip(void);
 
 void atk_8266_test(void);
 
-u8 atk_8266_wifista_test(void);
+u8 atk_8266_wifista_init(void);
 
 //用户配置参数
 extern const u8* portnum;			//连接端口
@@ -30,7 +30,7 @@ extern const u8* portnum;			//连接端口
 extern const char* wifista_ssid;		//WIFI STA SSID
 extern const char* wifista_password; 	//WIFI STA 密码
 
-
+extern u8 isAlive;	//连接状态
 #endif
 
 

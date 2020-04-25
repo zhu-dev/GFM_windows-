@@ -3,7 +3,7 @@
 #include "led.h"
 #include "usart.h"
 
-
+extern u8 rain;
 
 
 //外部中断0服务程序
@@ -23,6 +23,7 @@ void EXTI2_IRQHandler(void)
 	//注意阈值延时之类的，避免一直进中断
 	 delay_ms(10);	//消抖
 	 printf("\r\n监测到有雨滴\r\n");
+	 rain = 1;
 	 EXTI_ClearITPendingBit(EXTI_Line2);//清除LINE2上的中断标志位 
 }
 	   
