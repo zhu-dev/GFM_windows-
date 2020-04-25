@@ -9,12 +9,10 @@
 "..\obj\exti.o"
 "..\obj\dht11.o"
 "..\obj\rain_detect.o"
-"..\obj\myiic.o"
-"..\obj\oled.o"
 "..\obj\usart3.o"
 "..\obj\timer.o"
 "..\obj\encoder.o"
-"..\obj\pwm.o"
+"..\obj\oled.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
@@ -29,7 +27,6 @@
 "..\obj\stm32f4xx_tim.o"
 "..\obj\stm32f4xx_exti.o"
 "..\obj\common.o"
-"..\obj\wifista.o"
 --strict --scatter "..\OBJ\ADC.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

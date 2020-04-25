@@ -50,3 +50,4 @@
 ..\obj\main.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\main.o: ..\HARDWARE\USART3\usart3.h
 ..\obj\main.o: ..\HARDWARE\MOTO\encoder.h
+..\obj\main.o: ..\HARDWARE\OLED_IIC\oled.h

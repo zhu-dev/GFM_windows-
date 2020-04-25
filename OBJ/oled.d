@@ -1,5 +1,5 @@
-..\obj\oled.o: ..\HARDWARE\OLED\oled.c
-..\obj\oled.o: ..\HARDWARE\OLED\oled.h
+..\obj\oled.o: ..\HARDWARE\OLED_IIC\oled.c
+..\obj\oled.o: ..\HARDWARE\OLED_IIC\oled.h
 ..\obj\oled.o: ..\SYSTEM\sys\sys.h
 ..\obj\oled.o: ..\USER\stm32f4xx.h
 ..\obj\oled.o: ..\CORE\core_cm4.h
@@ -36,6 +36,5 @@
 ..\obj\oled.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\oled.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\oled.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\oled.o: ..\HARDWARE\OLED\codetab.h
+..\obj\oled.o: ..\HARDWARE\OLED_IIC\codetab.h
 ..\obj\oled.o: ..\SYSTEM\delay\delay.h
-..\obj\oled.o: ..\HARDWARE\OLED\myiic.h

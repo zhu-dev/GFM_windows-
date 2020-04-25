@@ -11,6 +11,7 @@
 #include "common.h"
 #include "usart3.h" 
 #include "encoder.h"
+#include  "oled.h"
 
 u8 window_isOpen;
 u8 rain;
@@ -44,6 +45,8 @@ int main(void)
 	uart_init(115200);	//初始化串口波特率为115200
 	usart3_init(115200);
 	LED_Init();					//初始化LED 
+	OLED_Init();
+	TIM3_PWM_Init(1000-1,84-1); //84M/84 = 1MHZ 1MHZ/1000 = 1KHZ
 	//Adc_Init();         //初始化ADC
 	
 //	MQ2_Init();						//初始化MQ2
@@ -55,12 +58,39 @@ int main(void)
 	LED0 = 1;
 	LED1 = 1;
 	
-	atk_8266_wifista_init();
+	//atk_8266_wifista_init();
 
 	while(1)
 	{ 
-			atk_8266_at_response(1);
+			/* 静态信息 */
+			OLED_Show16x16(0,0,1,0);//温湿度
+			OLED_Show16x16(16,0,2,0);
+			OLED_Show16x16(32,0,3,0);
+			OLED_P8x16Str(84,0,"C",0);
+			OLED_P8x16Str(120,0,"%",0);
 		
+		
+			OLED_Show16x16(0,2,4,0);//风速
+			OLED_Show16x16(16,2,5,0);
+				
+			OLED_Show16x16(0,4,6,0);//雨量检测
+		  OLED_Show16x16(16,4,7,0);
+		
+			OLED_Show16x16(0,6,8,0);//空气烟雾浓度
+			OLED_Show16x16(16,6,9,0);
+			OLED_Show16x16(32,6,10,0);
+			OLED_Show16x16(48,6,11,0);
+			
+			/* 动态数据 */
+			OLED_P8x16Str(104,0,"80",0);//湿度 
+			OLED_P8x16Str(68,0,"26",0);//温度
+			OLED_Show16x16(100,2,13,0); //风速           低13  中14  高15
+			OLED_Show16x16(100,4,17,0);//雨量检测        晴17  雨16
+			OLED_Show16x16(100,6,13,0); //空气烟雾浓度   低13  中14  高15
+		
+		
+			//atk_8266_at_response(1);
+			TIM_SetCompare4(TIM3,500);	//修改比较值，修改占空比
 			delay_ms(10); 
 			
 			//1秒读取一次编码器数据->风速
@@ -98,7 +128,16 @@ int main(void)
 					if(windspeed<1000) windlevel = 2;
 				  if(windspeed<9999) windlevel = 3;
 
+		
+					/* 显示动态数据 */
+					OLED_P8x16Str(104,0,"80",0);//湿度 
+					OLED_P8x16Str(68,0,"26",0);//温度
+					OLED_Show16x16(100,2,13,0); //风速           低13  中14  高15
+					OLED_Show16x16(100,4,17,0);//雨量检测        晴17  雨16
+					OLED_Show16x16(100,6,13,0); //空气烟雾浓度   低13  中14  高15
 					//窗户开合状态,根据温湿度，雨量，风速，合理的开合窗户
+					//TIM_SetCompare4(TIM3,500);	//修改比较值，修改占空比
+					
 					
 					//发送数据到客户端
 					memset(p,0x00,sizeof(p));

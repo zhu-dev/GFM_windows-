@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\ATK-ESP8266;..\HARDWARE\MOTO;..\HARDWARE\PWM</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\ATK-ESP8266;..\HARDWARE\MOTO;..\HARDWARE\PWM;..\HARDWARE\OLED_IIC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -436,16 +436,6 @@
               <FilePath>..\HARDWARE\Rain_detect\rain_detect.c</FilePath>
             </File>
             <File>
-              <FileName>myiic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\OLED\myiic.c</FilePath>
-            </File>
-            <File>
-              <FileName>oled.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\OLED\oled.c</FilePath>
-            </File>
-            <File>
               <FileName>usart3.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\USART3\usart3.c</FilePath>
@@ -461,9 +451,9 @@
               <FilePath>..\HARDWARE\MOTO\encoder.c</FilePath>
             </File>
             <File>
-              <FileName>pwm.c</FileName>
+              <FileName>oled.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HARDWARE\PWM\pwm.c</FilePath>
+              <FilePath>..\HARDWARE\OLED_IIC\oled.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -564,11 +554,6 @@
               <FileName>common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ATK-ESP8266\common.c</FilePath>
-            </File>
-            <File>
-              <FileName>wifista.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\ATK-ESP8266\wifista.c</FilePath>
             </File>
           </Files>
         </Group>
