@@ -11,10 +11,13 @@
 #include "common.h"
 #include "usart3.h" 
 #include "encoder.h"
-#include  "oled.h"
+#include "oled.h"
+#include "sim800a.h"
+#include "usart6.h" 
 
 u8 window_isOpen;
 u8 rain;
+u8 enter_home;
 
 void check_app_cmd(void);
 
@@ -42,26 +45,31 @@ int main(void)
 	
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);//设置系统中断优先级分组2
 	delay_init(168);    //初始化延时函数
-	uart_init(115200);	//初始化串口波特率为115200
+	usart_init(115200);	//初始化串口波特率为115200
 	usart3_init(115200);
+	usart6_init(115200);
 	LED_Init();					//初始化LED 
 	OLED_Init();
-	TIM3_PWM_Init(1000-1,84-1); //84M/84 = 1MHZ 1MHZ/1000 = 1KHZ
+//	TIM3_PWM_Init(1000-1,84-1); //84M/84 = 1MHZ 1MHZ/1000 = 1KHZ
 	//Adc_Init();         //初始化ADC
 	
 //	MQ2_Init();						//初始化MQ2
 //	HC_SR_Init();					
 //	Rain_Detect_Init();
-		ENCODER_Init();
+//		ENCODER_Init();
 //	while(DHT11_Init())	//DHT11初始化	
 
 	LED0 = 1;
 	LED1 = 1;
-	
+	printf("[debug]1\r\n");
 	//atk_8266_wifista_init();
-
+	sim800a_pdu_init();
+	//sim800a_send_warning();
+	
 	while(1)
 	{ 
+
+	
 			/* 静态信息 */
 			OLED_Show16x16(0,0,1,0);//温湿度
 			OLED_Show16x16(16,0,2,0);
@@ -90,16 +98,27 @@ int main(void)
 		
 		
 			//atk_8266_at_response(1);
-			TIM_SetCompare4(TIM3,500);	//修改比较值，修改占空比
+			//TIM_SetCompare4(TIM3,500);	//修改比较值，修改占空比
+			//TIM_SetCompare3(TIM3,500);	//修改比较值，修改占空比
 			delay_ms(10); 
 			
-			//1秒读取一次编码器数据->风速
-			if(time %100 == 0)
+			
+			//轮询是否有人进入房间
+			if(enter_home)
 			{
-				windspeed=CaptureNumber*60/13;//实际每分钟电机转速
-				printf("[sensor]CaptureNumber:%d\r\n",CaptureNumber);
-				printf("[sensor]windspeed:%d\r\n",windspeed);
+				sim800a_send_warning();
+				enter_home = 0;
 			}
+			
+			
+			//1秒读取一次编码器数据->风速
+//			if(time %100 == 0)
+//			{
+//				windspeed=CaptureNumber*60/13;//实际每分钟电机转速
+//				printf("[sensor]CaptureNumber:%d\r\n",CaptureNumber);
+//				printf("[sensor]windspeed:%d\r\n",windspeed);
+//			}
+			
 			
 			
 			
@@ -122,6 +141,7 @@ int main(void)
 					
 					//监测下雨状态
 					
+				
 					//风速
 					if(windspeed<100) windlevel = 0;
 					if(windspeed<500) windlevel = 1;

@@ -4,7 +4,7 @@
 #include "usart.h"
 
 extern u8 rain;
-
+extern u8 enter_home;
 
 //外部中断0服务程序
 void EXTI0_IRQHandler(void)
@@ -13,6 +13,7 @@ void EXTI0_IRQHandler(void)
 		 
 	 EXTI_ClearITPendingBit(EXTI_Line0); //清除LINE0上的中断标志位 
 		printf("\r\n红外热释电开关监测到有人\r\n");
+		enter_home = 1;
 	 LED1 = !LED1;
 }	
 

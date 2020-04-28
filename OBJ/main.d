@@ -51,3 +51,6 @@
 ..\obj\main.o: ..\HARDWARE\USART3\usart3.h
 ..\obj\main.o: ..\HARDWARE\MOTO\encoder.h
 ..\obj\main.o: ..\HARDWARE\OLED_IIC\oled.h
+..\obj\main.o: ..\SIM800A\sim800a.h
+..\obj\main.o: ..\SIM800A\usart6.h
+..\obj\main.o: ..\SIM800A\usart6.h

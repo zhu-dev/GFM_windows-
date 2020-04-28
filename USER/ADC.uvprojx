@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\ATK-ESP8266;..\HARDWARE\MOTO;..\HARDWARE\PWM;..\HARDWARE\OLED_IIC</IncludePath>
+              <IncludePath>..\CORE;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\HARDWARE\LED;..\HARDWARE\LCD;..\HARDWARE\ADC;..\FWLIB\inc;..\HARDWARE\MQ_Sensor;..\HARDWARE\EXTI;..\HARDWARE\SC_HR501;..\HARDWARE\DHT11;..\HARDWARE\Motor;..\HARDWARE\Rain_detect;..\HARDWARE\OLED;..\ATK-ESP8266;..\HARDWARE\TIMER;..\HARDWARE\USART3;..\ATK-ESP8266;..\HARDWARE\MOTO;..\HARDWARE\PWM;..\HARDWARE\OLED_IIC;..\SIM800A</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -554,6 +554,21 @@
               <FileName>common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\ATK-ESP8266\common.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SIM800A</GroupName>
+          <Files>
+            <File>
+              <FileName>sim800a.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SIM800A\sim800a.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SIM800A\usart6.c</FilePath>
             </File>
           </Files>
         </Group>
