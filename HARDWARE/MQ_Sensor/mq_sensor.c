@@ -18,20 +18,23 @@ void MQ2_Init(void)
 float MQ2_GetPPM(void)
 {
 
-		u16 adcx;
+		u32 adcx;
 		float Vrl ;
 		float RS;
 		float ppm;
-	
+		
 		adcx=Get_Adc_Average(ADC_Channel_5,20);//获取通道5的转换值，20次取平均
-	
+		
 		Vrl  = 3.3f * adcx / 4096;
-		RS  = (3.3f - Vrl) / Vrl * RL; 
 	
-		//printf("RS:%f",RS);//RO等于器件在洁净空气中的电阻值，等于器件在洁净空气中多次采集到的RS值
+		RS  = (3.3f - Vrl) / Vrl * RL; 
 
     ppm = 613.9f * pow(RS/R0,-2.074f);
-
+//		printf("[debug]:adcx=%d\r\n",adcx);
+//		printf("[debug]:ppm=%f\r\n",ppm);
+//		printf("[debug]:3.3f * adcx=%f\r\n",3.3f * adcx);
+//		printf("[debug]:Vrl=%f\r\n",Vrl);
+//		printf("[debug]:RS=%f\r\n",RS);
     return  ppm;
 	
 	

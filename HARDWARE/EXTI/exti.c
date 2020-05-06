@@ -6,15 +6,18 @@
 extern u8 rain;
 extern u8 enter_home;
 
+u8 raint_count = 0;
+
 //外部中断0服务程序
 void EXTI0_IRQHandler(void)
 {
 	delay_ms(10);	//消抖
 		 
-	 EXTI_ClearITPendingBit(EXTI_Line0); //清除LINE0上的中断标志位 
+	 
 		printf("\r\n红外热释电开关监测到有人\r\n");
 		enter_home = 1;
-	 LED1 = !LED1;
+		LED1 = !LED1;
+		EXTI_ClearITPendingBit(EXTI_Line0); //清除LINE0上的中断标志位 
 }	
 
 //外部中断2服务程序
@@ -23,8 +26,15 @@ void EXTI2_IRQHandler(void)
 	//雨滴模块是低电平有效
 	//注意阈值延时之类的，避免一直进中断
 	 delay_ms(10);	//消抖
-	 printf("\r\n监测到有雨滴\r\n");
-	 rain = 1;
+	
+	if(raint_count>1)
+	{
+		rain = 1;
+		raint_count = 0;
+		LED0 = !LED0;
+		printf("\r\n监测到有雨滴\r\n");
+	}
+	 raint_count++;
 	 EXTI_ClearITPendingBit(EXTI_Line2);//清除LINE2上的中断标志位 
 }
 	   
@@ -51,7 +61,7 @@ void HC_EXTI_Init(void)
 	
 
 	NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;//外部中断0
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x00;//抢占优先级0
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级0
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置
@@ -77,7 +87,7 @@ void Rain_EXIT_Init(void)
 	
 
 	NVIC_InitStructure.NVIC_IRQChannel = EXTI2_IRQn;//外部中断2
-  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x03;//抢占优先级3
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x02;//抢占优先级3
   NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x02;//子优先级2
   NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//使能外部中断通道
   NVIC_Init(&NVIC_InitStructure);//配置

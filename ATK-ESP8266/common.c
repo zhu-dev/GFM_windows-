@@ -12,7 +12,11 @@ const u8* portnum="8787";
 const char* wifista_ssid="TP-LINK_301";			//路由器SSID号
 const char* wifista_password="19881020"; 	//连接密码
 
+
+extern u8 open_window_flag;
+extern u8 close_window_flag;
 extern u8 window_isOpen;
+extern char *ip; 	//IP
 
 u8 isAlive;	//连接状态
 
@@ -27,7 +31,8 @@ void check_app_cmd(void)
 			 {
 				 	LED0 = !LED0;
 				 //打开窗户
-				 //window_isOpen = 1;
+				 open_window_flag = 1;
+				 window_isOpen = 1;
 			 }
 
 		 }
@@ -38,7 +43,8 @@ void check_app_cmd(void)
 			 {
 				  LED1= !LED1;
 				  //关闭窗户
-					//window_isOpen = 0;
+				 close_window_flag = 1;
+					window_isOpen = 0;
 			 }
 
 		 }
@@ -93,7 +99,7 @@ u8 atk_8266_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
 	u8 res=0; 
 	USART3_RX_STA=0;
 	u3_printf("%s\r\n",cmd);	//发送命令
-	printf("[cmd]%s\r\n",cmd);
+	printf("[ESP8266 cmd]%s\r\n",cmd);
 	if(ack&&waittime)		//需要等待应答
 	{
 		while(--waittime)	//等待倒计时
@@ -103,7 +109,7 @@ u8 atk_8266_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
 			{
 				if(atk_8266_check_cmd(ack))
 				{
-					printf("[ack]:%s\r\n",(u8*)ack);
+					printf("[ESP8266 ack]:%s\r\n",(u8*)ack);
 					break;//得到有效数据 
 				}
 					USART3_RX_STA=0;
@@ -233,13 +239,14 @@ u8 atk_8266_wifista_init(void)
 	//u8 netpro=0;	//网络模式
 	u8 key;
 	u8 timex=0; 
-	char *ip; 	//IP
+	//char *ip; 	//IP
 	char p[30];
 	u16 t=999;		//加速第一次获取链接状态
 	u8 res=0;
 	u16 rlen=0;
 	u8 constate=0;	//连接状态
 
+	printf("[debug]ESP8266 init start\r\n");
 	//设置模组工作方式
 	while(atk_8266_send_cmd("AT+CWMODE=1","OK",10))	//设置WIFI STA模式
 	{
@@ -271,7 +278,7 @@ u8 atk_8266_wifista_init(void)
 	
 	//将IP地址在OLED上显示出来
 	printf("[INFO]localIp:%s\r\n",ip);
-
+	printf("[debug]ESP8266 init OK\r\n");
 	return res;		
 } 
  

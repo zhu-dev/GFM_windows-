@@ -78,6 +78,7 @@ u16 Get_Adc_Average(u8 ch,u8 times)
 	for(t=0;t<times;t++)
 	{
 		temp_val+=Get_Adc(ch);
+		//printf("[debug]:temp_val=%d\r\n",temp_val);
 		delay_ms(5);
 	}
 	return temp_val/times;

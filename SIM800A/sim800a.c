@@ -1,13 +1,13 @@
 #include "sim800a.h"
 #include "stdio.h"
 
-char *msg_warning="0891683108701705F011000D91688100874376F40008AA14005B8B66544A005D67094EBA8FDB5165623F95F4";//[警告]有人进入了房间
+char *msg_warning="0891683108703705F011000D91685156815851F60008AA14005B8B66544A005D67094EBA8FDB5165623F95F4";//[警告]有人进入了房间
 
-const char *commom_1 = "089168"; //包含通用的信息中心头信息
-const char *commom_2 = "11000D9168";//包含通用的接收方头信息
-const char *commom_3 = "0008AA";//包含数据包编码通用信息
-const char *message_center_number = "3108701705F0";  //每两位倒置，86已经放到通用头部，所以这里不添加
-const char *received_number = "8100874376F4";//每两位倒置，86已经放到通用头部，所以这里不添加
+//const char *commom_1 = "089168"; //包含通用的信息中心头信息
+//const char *commom_2 = "11000D9168";//包含通用的接收方头信息
+//const char *commom_3 = "0008AA";//包含数据包编码通用信息
+//const char *message_center_number = "685156815851F6";  //每两位倒置，86已经放到通用头部，所以这里不添加
+//const char *received_number = "688100874376F4";//每两位倒置，86已经放到通用头部，所以这里不添加
 
 //char *data_lenght = ""; //数据信息长度，通用的接收方头信息+实际信息体
 //char *data = ""; //实际信息体
@@ -21,7 +21,7 @@ char* sim800a_check_cmd(char *str)
 	if(USART6_RX_STA&0X8000)		//接收到一次数据了
 	{ 
 		USART6_RX_BUF[USART6_RX_STA&0X7FFF]=0;//添加结束符
-		printf("[ack]:%s\r\n",USART6_RX_BUF);
+		printf("[SIM800A ack]:%s\r\n",USART6_RX_BUF);
 		strx=strstr((const char*)USART6_RX_BUF,(const char*)str);
 	} 
 	return strx;
@@ -33,7 +33,7 @@ u8 sim800a_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
 	u8 res=0; 
 	USART6_RX_STA=0;
 	u6_printf("%s\r\n",cmd);	//发送命令
-	printf("[cmd]%s\r\n",cmd);
+	printf("[SIM800A cmd]%s\r\n",cmd);
 	if(ack&&waittime)		//需要等待应答
 	{
 		while(--waittime)	//等待倒计时
@@ -96,7 +96,7 @@ u8 sim800a_pdu_init(void)
 		printf("[ERROR] SIM800 SET PDU MDOE FAILD..\r\n");
 	}
 	
-	printf("[debug]sim800 init end\r\n");
+	printf("[debug]sim800 init OK\r\n");
 	return res;
 }
 

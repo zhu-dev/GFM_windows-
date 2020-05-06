@@ -54,3 +54,4 @@
 ..\obj\main.o: ..\SIM800A\sim800a.h
 ..\obj\main.o: ..\SIM800A\usart6.h
 ..\obj\main.o: ..\SIM800A\usart6.h
+..\obj\main.o: ..\HARDWARE\EXTI\exti.h
