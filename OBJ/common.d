@@ -42,3 +42,4 @@
 ..\obj\common.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\common.o: ..\HARDWARE\USART3\usart3.h
 ..\obj\common.o: ..\HARDWARE\LED\led.h
+..\obj\common.o: E:\MDK5.24\ARM\ARMCC\Bin\..\include\stdlib.h

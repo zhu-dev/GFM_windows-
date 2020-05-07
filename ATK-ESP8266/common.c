@@ -1,7 +1,9 @@
 #include "common.h"
 #include "stdio.h"
 #include "led.h"
-
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
 
 //用户配置区
 
@@ -18,11 +20,52 @@ extern u8 close_window_flag;
 extern u8 window_isOpen;
 extern char *ip; 	//IP
 
+extern u8 temp_threshold;
+extern u8 humi_threshold;
+extern u8 wind_threshold;
+extern u8 somok_threshold;
+
+
+
 u8 isAlive;	//连接状态
+
+
+void handle_threshold(char *p)
+{
+	  char head;
+	  char *threshold;
+		
+		head = p[0];
+		switch(head)
+		{
+			case 't':
+				threshold = p+1;
+				temp_threshold = atoi(threshold);
+				printf("[info]temp_threshold:%d\r\n",temp_threshold);
+				break;
+			case 'h':
+				threshold = p+1;
+				humi_threshold = atoi(threshold);
+				printf("[info]humi_threshold:%d\r\n",humi_threshold);
+				break;
+			case 'w':
+				threshold = p+1;
+				wind_threshold = atoi(threshold);
+				printf("[info]wind_threshold:%d\r\n",wind_threshold);
+				break;
+			case 's':
+				threshold = p+1;
+				somok_threshold = atoi(threshold);
+				printf("[info]somok_threshold:%d\r\n",somok_threshold);
+				break;
+		}
+}
 
 
 void check_app_cmd(void)
 {
+	char *p;
+	char *threshold;
 	if(strstr((const char*)USART3_RX_BUF,"app:hbp!")== NULL)
 	{
 		 if(strstr((const char*)USART3_RX_BUF,"open"))
@@ -32,7 +75,7 @@ void check_app_cmd(void)
 				 	LED0 = !LED0;
 				 //打开窗户
 				 open_window_flag = 1;
-				 window_isOpen = 1;
+				 //window_isOpen = 1;
 			 }
 
 		 }
@@ -44,10 +87,17 @@ void check_app_cmd(void)
 				  LED1= !LED1;
 				  //关闭窗户
 				 close_window_flag = 1;
-					window_isOpen = 0;
+					//window_isOpen = 0;
 			 }
 
 		 }
+		 else if(strstr((const char*)USART3_RX_BUF,"th")) //温度
+		 {
+			  p = strstr((const char*)USART3_RX_BUF,"th");
+			  threshold = p+2;
+			  handle_threshold(threshold);
+		 }
+
 	}
 }
 
@@ -66,6 +116,7 @@ void atk_8266_at_response(u8 mode)
 			if(strstr((const char*)USART3_RX_BUF,"app:hbp!")!= NULL) isAlive = 1;
 			else if(strstr((const char*)USART3_RX_BUF,"open")) isAlive = 1;
 			else if(strstr((const char*)USART3_RX_BUF,"close")) isAlive = 1;
+			else if(strstr((const char*)USART3_RX_BUF,"th")) isAlive = 1;
 			else isAlive = 0;
 		
 			check_app_cmd();//判断下发的数据
@@ -109,7 +160,7 @@ u8 atk_8266_send_cmd(u8 *cmd,u8 *ack,u16 waittime)
 			{
 				if(atk_8266_check_cmd(ack))
 				{
-					printf("[ESP8266 ack]:%s\r\n",(u8*)ack);
+					//printf("[ESP8266 ack]:%s\r\n",(u8*)ack);
 					break;//得到有效数据 
 				}
 					USART3_RX_STA=0;

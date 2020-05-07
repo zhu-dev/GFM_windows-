@@ -1,5 +1,5 @@
 Dependencies for Project 'ADC', Target 'ADC': (DO NOT MODIFY !)
-F (.\main.c)(0x5EB2986C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5EB3D448)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
 I (..\USER\stm32f4xx.h)(0x5710F375)
 I (..\CORE\core_cm4.h)(0x5710F372)
@@ -42,7 +42,7 @@ I (..\HARDWARE\LED\led.h)(0x5EA26F8A)
 I (..\HARDWARE\ADC\adc.h)(0x5710F374)
 I (..\HARDWARE\MQ_Sensor\mq_sensor.h)(0x5E8D5AD3)
 I (..\HARDWARE\SC_HR501\hc_sr501.h)(0x5E8D781F)
-I (..\HARDWARE\EXTI\exti.h)(0x5EB23F14)
+I (..\HARDWARE\EXTI\exti.h)(0x5EB3840A)
 I (..\HARDWARE\DHT11\dht11.h)(0x5EA27082)
 I (..\HARDWARE\Rain_detect\rain_detect.h)(0x5E8D9283)
 I (..\ATK-ESP8266\common.h)(0x5EA2A7B4)
@@ -243,7 +243,7 @@ I (..\SYSTEM\usart\usart.h)(0x5EA68574)
 I (E:\MDK5.24\ARM\ARMCC\include\stdio.h)(0x588B8344)
 F (..\HARDWARE\SC_HR501\hc_sr501.c)(0x5EAE4C28)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\hc_sr501.o --omf_browse ..\obj\hc_sr501.crf --depend ..\obj\hc_sr501.d)
 I (..\HARDWARE\SC_HR501\hc_sr501.h)(0x5E8D781F)
-I (..\HARDWARE\EXTI\exti.h)(0x5EB23F14)
+I (..\HARDWARE\EXTI\exti.h)(0x5EB3840A)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
 I (..\USER\stm32f4xx.h)(0x5710F375)
 I (..\CORE\core_cm4.h)(0x5710F372)
@@ -279,8 +279,8 @@ I (..\FWLIB\inc\stm32f4xx_can.h)(0x5710F372)
 I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F373)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F373)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F373)
-F (..\HARDWARE\EXTI\exti.c)(0x5EB15272)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\exti.o --omf_browse ..\obj\exti.crf --depend ..\obj\exti.d)
-I (..\HARDWARE\EXTI\exti.h)(0x5EB23F14)
+F (..\HARDWARE\EXTI\exti.c)(0x5EB3AC7C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\exti.o --omf_browse ..\obj\exti.crf --depend ..\obj\exti.d)
+I (..\HARDWARE\EXTI\exti.h)(0x5EB3840A)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
 I (..\USER\stm32f4xx.h)(0x5710F375)
 I (..\CORE\core_cm4.h)(0x5710F372)
@@ -360,7 +360,7 @@ I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F373)
 I (..\SYSTEM\delay\delay.h)(0x5710F374)
 F (..\HARDWARE\Rain_detect\rain_detect.c)(0x5EAE4C1A)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\rain_detect.o --omf_browse ..\obj\rain_detect.crf --depend ..\obj\rain_detect.d)
 I (..\HARDWARE\Rain_detect\rain_detect.h)(0x5E8D9283)
-I (..\HARDWARE\EXTI\exti.h)(0x5EB23F14)
+I (..\HARDWARE\EXTI\exti.h)(0x5EB3840A)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
 I (..\USER\stm32f4xx.h)(0x5710F375)
 I (..\CORE\core_cm4.h)(0x5710F372)
@@ -979,7 +979,7 @@ I (..\FWLIB\inc\stm32f4xx_dac.h)(0x5710F373)
 I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x5710F373)
 I (..\FWLIB\inc\stm32f4xx_fsmc.h)(0x5710F373)
 F (..\readme.txt)(0x5EA543BB)()
-F (..\ATK-ESP8266\common.c)(0x5EB25F0F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\common.o --omf_browse ..\obj\common.crf --depend ..\obj\common.d)
+F (..\ATK-ESP8266\common.c)(0x5EB3D575)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\common.o --omf_browse ..\obj\common.crf --depend ..\obj\common.d)
 I (..\ATK-ESP8266\common.h)(0x5EA2A7B4)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
 I (..\USER\stm32f4xx.h)(0x5710F375)
@@ -1022,6 +1022,7 @@ I (..\SYSTEM\delay\delay.h)(0x5710F374)
 I (E:\MDK5.24\ARM\ARMCC\include\string.h)(0x588B8344)
 I (..\HARDWARE\USART3\usart3.h)(0x5E9C3B15)
 I (..\HARDWARE\LED\led.h)(0x5EA26F8A)
+I (E:\MDK5.24\ARM\ARMCC\include\stdlib.h)(0x588B8344)
 F (..\SIM800A\sim800a.c)(0x5EB1504B)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\LCD -I ..\HARDWARE\ADC -I ..\FWLIB\inc -I ..\HARDWARE\MQ_Sensor -I ..\HARDWARE\EXTI -I ..\HARDWARE\SC_HR501 -I ..\HARDWARE\DHT11 -I ..\HARDWARE\Motor -I ..\HARDWARE\Rain_detect -I ..\HARDWARE\OLED -I ..\ATK-ESP8266 -I ..\HARDWARE\TIMER -I ..\HARDWARE\USART3 -I ..\ATK-ESP8266 -I ..\HARDWARE\MOTO -I ..\HARDWARE\PWM -I ..\HARDWARE\OLED_IIC -I ..\SIM800A-I.\RTE\_ADC-IE:\MDK5.24\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include-IE:\MDK5.24\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DSTM32F40_41xxx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER-o ..\obj\sim800a.o --omf_browse ..\obj\sim800a.crf --depend ..\obj\sim800a.d)
 I (..\SIM800A\sim800a.h)(0x5EA556DB)
 I (..\SYSTEM\sys\sys.h)(0x5710F374)
